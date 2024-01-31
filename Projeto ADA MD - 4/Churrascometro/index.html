@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Churrascômetro</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Churrascômetro</h1>
+        <div id="step1" class="step">
+            <form id="step1Form">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" class="input-form" required>
+                <div id="invalid-name">Por favor, insira um nome válido.</div>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" class="input-form" required>
+                <div id="invalid-email">Por favor, insira um e-mail válido.</div>
+
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" class="input-form" required>
+                <div id="error-postal-code">Por favor, insira um CEP válido.</div>
+
+                <div id="consent-input">
+                    <input type="checkbox" id="consent" checked>
+                    <label id="consent-label" for="consent">Aceito receber e-mails com promoções</label>
+                </div>
+
+                <button type="button" onclick="validateStep1()" class="default-button">Próximo</button>
+                <div id="no-input">Por favor, preencha todos os campos.</div>
+                <div id="invalid-input">Por favor, corrija os campos inválidos.</div>
+            </form>
+        </div>
+
+        <div id="step2" class="step">
+            <form id="step2Form">
+                <label for="qtyMen">Quantidade de Homens:</label>
+                <input type="number" id="qtyMen" min="0" class="input-form" required>
+
+                <label for="qtyWomen">Quantidade de Mulheres/Adultos:</label>
+                <input type="number" id="qtyWomen" min="0" class="input-form" required>
+
+                <label for="qtyChildren">Quantidade de Crianças:</label>
+                <input type="number" id="qtyChildren" min="0" class="input-form" required>
+
+                <label for="qtyAlcoholDrinkers">Quantidade de Pessoas que bebem álcool:</label>
+                <input type="number" id="qtyAlcoholDrinkers" min="0" class="input-form" required>
+
+                <button type="button" onclick="calculateStep2()" class="default-button">Próximo</button>
+                <button type="reset" class="default-button" id="back-nav">Voltar</button>
+            </form>
+        </div>
+
+        <div id="step3" class="step">
+            <h2>Passo 3</h2>
+            <div id="calculationResult" class="input-group-result">
+                <div id="header-result">
+                    <p>Resultado do Churrascômetro</p>
+                    <button class="default-button" onclick="recalculate()">Recalcular</button>
+                </div>
+                <ul class="results">
+                    <li><strong>Carne:</strong> <span id="resultCarne">0</span> KG</li>
+                    <li><strong>Pão de Alho:</strong> <span id="resultPaoDeAlho">0</span></li>
+                    <li><strong>Carvão:</strong> <span id="resultCarvao">0</span> KG</li>
+                    <li><strong>Sal:</strong> <span id="resultSal">0</span> KG</li>
+                    <li><strong>Gelo:</strong> <span id="resultGelo">0</span> KG</li>
+                    <li><strong>Refrigerante:</strong> <span id="resultRefrigerante">0</span> garrafas de 2L</li>
+                    <li><strong>Água:</strong> <span id="resultAgua">0</span> garrafas de 1L</li>
+                    <li><strong>Cerveja:</strong> <span id="resultCerveja">0</span> garrafas de 600ml</li>
+                </ul>
+                <div id="total-guest">Total de convidados: <span id="resultTotalGuest">0</span></div>
+                <div class="guest-list" id="guestList"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
